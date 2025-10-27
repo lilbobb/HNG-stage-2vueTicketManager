@@ -10,7 +10,7 @@
                 <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <span class="text-lg font-semibold text-white">JetGO</span>
+            <span class="text-lg font-semibold text-white">jetGO</span>
           </div>
           <p class="text-sm text-gray-400">
             Modern ticket management inspired by Atlassian's design excellence.
@@ -40,7 +40,7 @@
 
       <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p class="text-sm text-gray-500">
-          &copy; 2025 JetGO. All rights reserved.
+          &copy; 2025 jetGO. All rights reserved.
         </p>
         <div class="flex items-center gap-6 text-sm">
           <router-link to="/privacy" class="text-gray-400 hover:text-blue-400 transition-colors">Privacy Policy</router-link>
