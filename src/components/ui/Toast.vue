@@ -13,7 +13,7 @@
           <p v-if="description" class="mt-1 text-sm text-gray-700">{{ description }}</p>
         </div>
         <button
-          @click="emit('close')"
+          @click="hideToast"
           class="flex-shrink-0 text-gray-600 hover:text-gray-800 transition-colors"
         >
           <X :size="18" />
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch, onMounted } from 'vue';
+import { computed, watch, onMounted, onUnmounted } from 'vue';
 import { CheckCircle, AlertCircle, Info, AlertTriangle, X } from 'lucide-vue-next';
 
 interface Props {
@@ -44,7 +44,25 @@ const emit = defineEmits<{
   'update:modelValue': [value: boolean];
 }>();
 
-let timer: number;
+let timer: number | undefined;
+
+const hideToast = () => {
+  if (timer !== undefined) {
+    clearTimeout(timer);
+    timer = undefined;
+  }
+  emit('close');
+  emit('update:modelValue', false);
+};
+
+const startTimer = () => {
+  if (timer !== undefined) {
+    clearTimeout(timer);
+  }
+  timer = window.setTimeout(() => {
+    hideToast();
+  }, props.duration);
+};
 
 const toastClasses = computed(() => {
   const baseClasses =
@@ -77,18 +95,24 @@ watch(
   () => props.modelValue,
   (newVal) => {
     if (newVal && props.duration > 0) {
-      timer = window.setTimeout(() => {
-        emit('close');
-      }, props.duration);
+      startTimer();
+    } else if (!newVal && timer !== undefined) {
+      clearTimeout(timer);
+      timer = undefined;
     }
   }
 );
 
 onMounted(() => {
   if (props.modelValue && props.duration > 0) {
-    timer = window.setTimeout(() => {
-      emit('close');
-    }, props.duration);
+    startTimer();
+  }
+});
+
+onUnmounted(() => {
+  if (timer !== undefined) {
+    clearTimeout(timer);
+    timer = undefined;
   }
 });
 </script>

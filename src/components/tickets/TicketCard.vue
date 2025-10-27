@@ -11,7 +11,7 @@
           <Edit2 :size="18" />
         </button>
         <button
-          @click="emit('delete', ticket)"
+          @click="emit('delete', ticket.id)"
           class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition cursor-pointer"
           title="Delete ticket"
         >

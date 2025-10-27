@@ -1,8 +1,8 @@
 <template>
-  <div class="card-atlantic p-6 hover:shadow-atlantic-lg transition-all rounded-xl bg-surface border border-border/40">
+  <div class="p-6 hover:shadow-lg transition-all rounded-xl bg-white border border-gray-200">
     <div class="flex items-center justify-between">
       <div class="flex-1">
-        <p class="text-sm font-medium text-neutral-600 mb-1">{{ label }}</p>
+        <p class="text-sm font-medium text-gray-600 mb-1">{{ label }}</p>
         <p :class="['text-3xl font-bold', colorClass]">{{ value }}</p>
       </div>
       <div :class="['w-12 h-12 rounded-xl flex items-center justify-center', bgClass]">
@@ -13,7 +13,7 @@
     <div v-if="trend" class="mt-4 flex items-center gap-1 text-sm">
       <svg
         v-if="trend > 0"
-        class="w-4 h-4 text-success-500"
+        class="w-4 h-4 text-green-500"
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -25,7 +25,7 @@
       </svg>
       <svg
         v-else
-        class="w-4 h-4 text-error-500"
+        class="w-4 h-4 text-red-500"
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -35,10 +35,10 @@
           clip-rule="evenodd"
         />
       </svg>
-      <span :class="trend > 0 ? 'text-success-600' : 'text-error-600'">
+      <span :class="trend > 0 ? 'text-green-600' : 'text-red-600'">
         {{ Math.abs(trend) }}%
       </span>
-      <span class="text-neutral-500">vs last period</span>
+      <span class="text-gray-500">vs last period</span>
     </div>
   </div>
 </template>
@@ -59,32 +59,30 @@ const props = defineProps<Props>();
 // Text color
 const colorClass = computed(() => {
   const colors = {
-    blue: 'text-primary-500',
-    green: 'text-success-500',
-    yellow: 'text-warning-600',
-    neutral: 'text-neutral-700'
+    blue: 'text-blue-600',
+    green: 'text-green-600',
+    yellow: 'text-yellow-600',
+    neutral: 'text-gray-700'
   };
   return colors[props.color];
 });
 
-// Icon background
 const bgClass = computed(() => {
   const backgrounds = {
-    blue: 'bg-primary-50',
-    green: 'bg-success-50',
-    yellow: 'bg-warning-50',
-    neutral: 'bg-neutral-100'
+    blue: 'bg-blue-50',
+    green: 'bg-green-50',
+    yellow: 'bg-yellow-50',
+    neutral: 'bg-gray-100'
   };
   return backgrounds[props.color];
 });
 
-// Icon color
 const iconClass = computed(() => {
   const iconColors = {
-    blue: 'text-primary-500',
-    green: 'text-success-500',
-    yellow: 'text-warning-600',
-    neutral: 'text-neutral-600'
+    blue: 'text-blue-600',
+    green: 'text-green-600',
+    yellow: 'text-yellow-600',
+    neutral: 'text-gray-600'
   };
   return iconColors[props.color];
 });

@@ -24,9 +24,9 @@ export const ticketService = {
     
     if (index === -1) return null;
     
-    tickets[index] = { ...tickets[index], ...ticketData };
+    tickets[index] = { ...tickets[index], ...ticketData } as Ticket;
     saveToStorage(STORAGE_KEYS.TICKETS, tickets);
-    return tickets[index];
+    return tickets[index] ?? null;
   },
 
   delete: (id: string): boolean => {

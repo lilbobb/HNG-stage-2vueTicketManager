@@ -45,7 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { Plus } from 'lucide-vue-next';
 import Navigation from '../layout/Navigation.vue';
 import Footer from '../layout/Footer.vue';
@@ -57,12 +58,29 @@ import { useTickets } from '../../composables/useTickets';
 import { useToast } from '../../composables/useToast';
 import type { Ticket } from '../../types';
 
+const route = useRoute();
+const router = useRouter();
 const { tickets, createTicket, updateTicket, deleteTicket } = useTickets();
 const { toast, showSuccess, showError, hideToast } = useToast();
 const showForm = ref(false);
 const editingTicket = ref<Ticket | null>(null);
 const showDeleteModal = ref(false);
 const ticketToDelete = ref<Ticket | null>(null);
+
+onMounted(() => {
+  checkQueryParams();
+});
+
+watch(() => route.query, () => {
+  checkQueryParams();
+});
+
+const checkQueryParams = () => {
+  if (route.query.create === 'new') {
+    showForm.value = true;
+    router.replace({ query: {} });
+  }
+};
 
 const handleSubmit = (data: Omit<Ticket, 'id' | 'createdAt'>) => {
   try {
@@ -84,10 +102,13 @@ const handleEdit = (ticket: Ticket) => {
   showForm.value = true;
 };
 
-const handleDelete = (ticket: Ticket) => {
-  console.log('Delete triggered for ticket:', ticket); 
-  ticketToDelete.value = ticket;
-  showDeleteModal.value = true;
+const handleDelete = (ticketId: string) => { 
+  const ticket = tickets.value.find(t => t.id === ticketId);
+  if (ticket) {
+    console.log('Delete triggered for ticket:', ticket); 
+    ticketToDelete.value = ticket;
+    showDeleteModal.value = true;
+  }
 };
 
 const confirmDelete = () => {
