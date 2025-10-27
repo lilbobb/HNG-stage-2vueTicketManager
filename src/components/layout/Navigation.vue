@@ -2,7 +2,7 @@
   <nav class="w-full bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-blue-600 cursor-pointer" @click="router.push('/')">
-        JetGO
+        jetGO
       </h1>
 
       <div v-if="showAuth && isAuthenticated" class="flex items-center gap-4">
