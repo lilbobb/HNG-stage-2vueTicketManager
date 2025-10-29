@@ -3,13 +3,13 @@
     <Navigation :show-auth="true" />
 
     <main class="flex-1">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="mb-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-2">Dashboard</h2>
-          <p class="text-gray-600">Welcome back! Here's an overview of your tickets.</p>
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div class="mb-6 sm:mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Dashboard</h2>
+          <p class="text-gray-600 text-sm sm:text-base">Welcome back! Here's an overview of your tickets.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <StatCard 
             :value="stats.total" 
             label="Total Tickets" 
@@ -40,27 +40,27 @@
           />
         </div>
 
-        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
-          <h3 class="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h3>
-          <div class="flex flex-col sm:flex-row gap-4">
+        <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-sm border border-gray-200">
+          <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Quick Actions</h3>
+          <div class="flex flex-col xs:flex-row gap-3 sm:gap-4">
             <Button 
               variant="primary" 
               size="lg" 
-              class="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+              class="bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 w-full xs:w-auto px-4 py-3 text-sm sm:text-base"
               @click="createNewTicket"
             >
-              <Plus :size="20" />
-              Create New Ticket
+              <Plus :size="18" class="sm:w-5 sm:h-5 shrink-0" />
+              <span class="whitespace-nowrap">Create New Ticket</span>
             </Button>
 
             <Button 
               variant="secondary" 
               size="lg" 
-              class="bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300 flex items-center gap-2"
+              class="bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300 flex items-center justify-center gap-2 w-full xs:w-auto px-4 py-3 text-sm sm:text-base"
               @click="router.push('/tickets')"
             >
-              <List :size="20" />
-              View All Tickets
+              <List :size="18" class="sm:w-5 sm:h-5 shrink-0" />
+              <span class="whitespace-nowrap">View All Tickets</span>
             </Button>
           </div>
         </div>

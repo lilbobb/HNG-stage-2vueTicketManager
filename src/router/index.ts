@@ -38,57 +38,66 @@ const routes = [
     component: TicketManagement,
     meta: { requiresAuth: true },
   },
-  { 
-    path: '/about', 
-    component: () => import('../pages/AboutPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/features', 
-    component: () => import('../pages/FeaturesPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/pricing', 
-    component: () => import('../pages/PricingPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/contact', 
-    component: () => import('../pages/ContactPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/documentation', 
-    component: () => import('../pages/DocumentationPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/careers', 
-    component: () => import('../pages/CareersPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/privacy', 
-    component: () => import('../pages/PrivacyPage.vue'),
-    meta: { requiresAuth: false }
-  },
-  { 
-    path: '/terms', 
-    component: () => import('../pages/TermsPage.vue'),
-    meta: { requiresAuth: false }
+  {
+    path: "/about",
+    component: () => import("../pages/AboutPage.vue"),
+    meta: { requiresAuth: false },
   },
   {
-    path: '/:pathMatch(.*)*',
-    name: 'not-found',
-    component: () => import('../pages/NotFoundPage.vue'),
-    meta: { requiresAuth: false }
-  }
+    path: "/features",
+    component: () => import("../pages/FeaturesPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/pricing",
+    component: () => import("../pages/PricingPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/contact",
+    component: () => import("../pages/ContactPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/documentation",
+    component: () => import("../pages/DocumentationPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/careers",
+    component: () => import("../pages/CareersPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/privacy",
+    component: () => import("../pages/PrivacyPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/terms",
+    component: () => import("../pages/TermsPage.vue"),
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: () => import("../pages/NotFoundPage.vue"),
+    meta: { requiresAuth: false },
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    return {
+      top: 0,
+      behavior: 'smooth'
+    };
+  }
 });
 
 router.beforeEach((to, _, next) => {

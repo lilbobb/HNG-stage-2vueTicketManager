@@ -18,15 +18,15 @@
     <Navigation :show-auth="true" />
 
     <main class="flex-1">
-      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="flex justify-between items-center mb-8">
-          <h2 class="text-3xl font-bold text-gray-900">Ticket Management</h2>
+      <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Ticket Management</h2>
           <button 
             @click="showForm = !showForm"
-            class="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md cursor-pointer"
+            class="flex items-center justify-center gap-2 w-full sm:w-auto px-4 sm:px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md cursor-pointer text-sm sm:text-base"
           >
-            <Plus :size="20" />
-            New Ticket
+            <Plus :size="18" class="sm:w-5 sm:h-5" />
+            <span class="whitespace-nowrap">New Ticket</span>
           </button>
         </div>
 

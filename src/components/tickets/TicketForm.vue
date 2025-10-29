@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-surface p-6 rounded-xl shadow-card mb-8">
-    <h3 class="text-2xl font-bold text-neutral-900 mb-6">
+  <div class="bg-surface p-4 sm:p-6 rounded-xl shadow-card mb-6 sm:mb-8">
+    <h3 class="text-xl sm:text-2xl font-bold text-neutral-900 mb-4 sm:mb-6">
       {{ ticket ? 'Edit Ticket' : 'Create New Ticket' }}
     </h3>
-    <form @submit.prevent="handleSubmit" class="space-y-4">
+    <form @submit.prevent="handleSubmit" class="space-y-4 sm:space-y-6">
       <Input
         v-model="formData.title"
         type="text"
@@ -17,20 +17,20 @@
         <label class="block text-sm font-medium text-neutral-700 mb-2">Description</label>
         <textarea
           v-model="formData.description"
-          class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
-          rows="4"
+          class="w-full px-3 sm:px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none text-sm sm:text-base"
+          rows="3"
           placeholder="Enter ticket description"
         />
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         <div>
           <label class="block text-sm font-medium text-neutral-700 mb-2">
             Status <span class="text-danger-500">*</span>
           </label>
           <select
             v-model="formData.status"
-            class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+            class="w-full px-3 sm:px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none text-sm sm:text-base"
           >
             <option value="open">Open</option>
             <option value="in_progress">In Progress</option>
@@ -43,7 +43,7 @@
           <label class="block text-sm font-medium text-neutral-700 mb-2">Priority</label>
           <select
             v-model="formData.priority"
-            class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+            class="w-full px-3 sm:px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none text-sm sm:text-base"
           >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
@@ -52,11 +52,20 @@
         </div>
       </div>
 
-      <div class="flex gap-4">
-        <Button type="submit" variant="primary">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+        <Button 
+          type="submit" 
+          variant="primary" 
+          class="w-full sm:w-auto order-2 sm:order-1"
+        >
           {{ ticket ? 'Update Ticket' : 'Create Ticket' }}
         </Button>
-        <Button type="button" variant="secondary" @click="emit('cancel')">
+        <Button 
+          type="button" 
+          variant="secondary" 
+          @click="emit('cancel')"
+          class="w-full sm:w-auto order-1 sm:order-2"
+        >
           Cancel
         </Button>
       </div>
