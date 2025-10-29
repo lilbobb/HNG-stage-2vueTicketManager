@@ -56,7 +56,6 @@ interface Props {
 
 const props = defineProps<Props>();
 
-// Text color
 const colorClass = computed(() => {
   const colors = {
     blue: 'text-blue-600',
