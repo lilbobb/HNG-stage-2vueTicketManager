@@ -11,13 +11,19 @@
           faster than ever.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-          <Button @click="router.push('/signup')" variant="primary" size="lg"
+          <template v-if="!isAuthenticated">
+            <Button @click="router.push('/signup')" variant="primary" size="lg"
+              class="w-full sm:w-auto transform hover:-translate-y-1 transition-transform duration-300">
+              Get Started
+            </Button>
+            <Button @click="router.push('/login')" variant="subtle" size="lg"
+              class="w-full sm:w-auto transform hover:-translate-y-1 transition-transform duration-300 border-blue-200 hover:border-blue-300">
+              Login
+            </Button>
+          </template>
+          <Button v-else @click="router.push('/dashboard')" variant="primary" size="lg"
             class="w-full sm:w-auto transform hover:-translate-y-1 transition-transform duration-300">
-            Get Started
-          </Button>
-          <Button @click="router.push('/login')" variant="subtle" size="lg"
-            class="w-full sm:w-auto transform hover:-translate-y-1 transition-transform duration-300 border-blue-200 hover:border-blue-300">
-            Login
+            Go to Dashboard
           </Button>
         </div>
       </div>
@@ -39,5 +45,7 @@
 import { useRouter } from 'vue-router';
 import WaveBackground from './WaveBackground.vue';
 import Button from '../ui/Button.vue';
+import { useAuth } from '../../composables/useAuth';
 const router = useRouter();
+const { isAuthenticated } = useAuth(); // Destructure
 </script>
