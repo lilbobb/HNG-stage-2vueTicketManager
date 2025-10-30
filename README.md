@@ -9,7 +9,6 @@ JetGO offers an intuitive, responsive interface for managing support tickets, tr
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8.svg)
 ![Vite](https://img.shields.io/badge/Vite-5.0-646cff.svg)
 
----
 
 ##  Table of Contents
 
@@ -30,7 +29,7 @@ JetGO offers an intuitive, responsive interface for managing support tickets, tr
 - [Contributing](#contributing)
 - [License](#license)
 
----
+
 
 ##  Overview
 
@@ -38,9 +37,8 @@ JetGO offers an intuitive, responsive interface for managing support tickets, tr
 This **Vue.js** implementation is part of a multi-framework initiative (React, Twig, and Vue versions) showcasing consistent design and architecture across ecosystems.
 
 ### 🌐 Live Demo
-👉 [https://jetgoticket.netlify.app/](https://jetgoticket.netlify.app/)
+👉 [jetGO](https://jetgoticket.netlify.app/)
 
----
 
 ##  Features
 
@@ -61,7 +59,6 @@ This **Vue.js** implementation is part of a multi-framework initiative (React, T
 -  Clean typography and structured layout
 -  Pinia state management for simplicity and performance
 
----
 
 ##  Tech Stack
 
@@ -82,9 +79,8 @@ This **Vue.js** implementation is part of a multi-framework initiative (React, T
 - **Vue TSC** — TypeScript type checking
 - **ESLint + Prettier** — Code linting and formatting
 
----
 
-## 🗂️ Project Structure
+##  Project Structure
 
 jetgo-vue/
 ├── public/
@@ -114,8 +110,6 @@ jetgo-vue/
 └── README.md\
 
 
----
-
 ## 🧾 Prerequisites
 
 Ensure you have the following installed before running JetGO:
@@ -127,7 +121,7 @@ Ensure you have the following installed before running JetGO:
 | **Git** | Latest | [Install](https://git-scm.com/) |
 
 Verify your setup:
-```bash
+
 node --version
 npm --version
 
@@ -197,29 +191,17 @@ Create
 Fill form (title, status, description)
 
 Inline validation
-
 Toast confirmation
-
 Read
-
 Tickets displayed in cards with:
-
 Status badge (color-coded)
-
 Priority level
-
 Created date
-
 Update
-
 Edit inline or via modal form
-
 Changes saved immediately with toast feedback
-
 Delete
-
 Confirmation modal appears before deletion
-
 Toast confirmation after removal
 
 ## Validation Rules
@@ -327,3 +309,5 @@ UI: Tailwind CSS
 ✅ Accessible components
 ✅ Clean UI and UX
 ✅ Complete documentation
+
+---
