@@ -1,288 +1,329 @@
-# JetGO - Ticket Management System (Vue.js Version)
+# JetGO - Vue Implementation
 
-A modern, Jira-inspired ticket management application built with Vue 3, TypeScript, and Tailwind CSS.
+A modern, Jira-inspired **ticket management system** built with **Vue 3**, **TypeScript**, and **Tailwind CSS**.  
+JetGO offers an intuitive, responsive interface for managing support tickets, tracking progress, and organizing team workflows efficiently.
 
-## 🚀 Live Demo
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Vue](https://img.shields.io/badge/Vue-3.x-42b883.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6.svg)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8.svg)
+![Vite](https://img.shields.io/badge/Vite-5.0-646cff.svg)
 
-[Add your live demo link here]
+---
 
-## 📋 Project Overview
+##  Table of Contents
 
-JetGO is a comprehensive ticket management system that helps teams track, organize, and resolve issues efficiently. This is the Vue.js implementation as part of a multi-framework project.
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Usage Guide](#usage-guide)
+- [Authentication](#authentication)
+- [Ticket Management](#ticket-management)
+- [Design System](#design-system)
+- [Accessibility](#accessibility)
+- [Known Issues](#known-issues)
+- [Browser Support](#browser-support)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 🛠️ Technology Stack
+---
 
-### Frontend Framework
-- **Vue 3** - Composition API with `<script setup>`
-- **TypeScript** - Type safety and better developer experience
-- **Vue Router 4** - Client-side routing
-- **Pinia** - State management
+##  Overview
 
-### Styling & UI
-- **Tailwind CSS** - Utility-first CSS framework
-- **Lucide Vue** - Beautiful icons
-- **Custom Components** - Reusable UI components
+**JetGO** is a full-featured ticket management platform designed to streamline support and project tracking.  
+This **Vue.js** implementation is part of a multi-framework initiative (React, Twig, and Vue versions) showcasing consistent design and architecture across ecosystems.
 
-### Build Tools
-- **Vite** - Fast build tool and dev server
-- **Vue TSC** - TypeScript checking
+### 🌐 Live Demo
+👉 [https://jetgoticket.netlify.app/](https://jetgoticket.netlify.app/)
 
-## Project Structure
-src/
-├── components/\
-│ ├── auth/ # Authentication components\
-│ │ └── AuthPage.vue\
-│ ├── dashboard/ # Dashboard components\
-│ │ ├── DashboardView.vue\
-│ │ ├── StatCard.vue\
-│ │ └── ...\
-│ ├── layout/ # Layout components\
-│ │ ├── Navigation.vue\
-│ │ └── Footer.vue\
-│ ├── landing/ # Landing page components\
-│ │ ├── LandingPage.vue\
-│ │ ├── HeroSection.vue\
-│ │ ├── FeaturesSection.vue\
-│ │ └── WaveBackground.vue\
-│ ├── tickets/ # Ticket management\
-│ │ ├── TicketManagement.vue\
-│ │ ├── TicketForm.vue\
-│ │ ├── TicketList.vue\
-│ │ ├── TicketCard.vue\
-│ │ └── DeleteModal.vue\
-│ └── ui/ # Reusable UI components\
-│ ├── Button.vue\
-│ ├── Input.vue\
-│ └── Toast.vue\
-├── pages/ # Route pages\
-│ ├── AboutPage.vue\
-│ ├── FeaturesPage.vue\
-│ ├── PricingPage.vue\
-│ ├── ContactPage.vue\
-│ └── ...\
-├── composables/ # Composable functions\
-│ ├── useAuth.ts\
-│ ├── useTickets.ts\
-│ └── useToast.ts\
-├── stores/ # State management\
-│ └── auth.ts\
-├── router/ # Route configuration\
-│ └── index.ts\
-├── types/ # TypeScript definitions\
-│ └── index.ts\
-└── utils/ # Helper functions\
-└── helpers.ts\
+---
+
+##  Features
+
+### Core Functionality
+-  **Authentication System** — Login, Signup, Logout with local session handling
+-  **Dashboard Overview** — Total, Open, In Progress, and Closed ticket stats
+-  **Full CRUD** — Create, Read, Update, and Delete tickets
+-  **Validation** — Real-time form validation with clear feedback
+-  **Toast Notifications** — Success/error toasts for all actions
+-  **Protected Routes** — Only accessible when logged in
+-  **Responsive Design** — Mobile-first UI that adapts seamlessly
+-  **Accessibility Friendly** — Keyboard navigation & proper ARIA labeling
+
+### Design Highlights
+-  Jira-inspired blue theme with modern gradients
+-  Hero section with wave background and blur effects
+-  Reusable UI components (buttons, inputs, modals, etc.)
+-  Clean typography and structured layout
+-  Pinia state management for simplicity and performance
+
+---
+
+##  Tech Stack
+
+### Frontend Framework & Tools
+- **Vue 3 (Composition API)** — Modern, reactive UI framework
+- **TypeScript 5.x** — Type safety and IDE auto-completion
+- **Vite 5.x** — Lightning-fast dev server and build tool
+
+### Routing & State
+- **Vue Router 4** — SPA navigation and route guards
+- **Pinia** — Lightweight, modern state management
+
+### Styling & Icons
+- **Tailwind CSS 3.4** — Utility-first CSS framework
+- **Lucide Vue** — Clean, consistent icon library
+
+### Utilities
+- **Vue TSC** — TypeScript type checking
+- **ESLint + Prettier** — Code linting and formatting
+
+---
+
+## 🗂️ Project Structure
+
+jetgo-vue/
+├── public/
+│ └── index.html # Base HTML\
+├── src/
+│ ├── assets/ # Images, icons\
+│ ├── components/
+│ │ ├── auth/ # Login & Signup\
+│ │ ├── dashboard/ # Dashboard components\
+│ │ ├── landing/ # Landing page sections\
+│ │ ├── layout/ # Navigation & Footer\
+│ │ ├── tickets/ # Ticket management\
+│ │ └── ui/ # Reusable UI components\
+│ ├── composables/ # Custom hooks (useAuth, useToast, etc.)\
+│ ├── pages/ # Routed pages\
+│ ├── router/ # Vue Router setup\
+│ ├── stores/ # Pinia stores (auth, tickets)\
+│ ├── types/ # TypeScript interfaces\
+│ ├── utils/ # Helper utilities\
+│ ├── App.vue # Root component\
+│ ├── main.ts # App entry point\
+│ └── style.css # Global styles\
+├── tailwind.config.js\
+├── vite.config.ts\
+├── tsconfig.json\
+├── package.json\
+└── README.md\
 
 
-##  Core Features
+---
 
-###  Authentication System
-- Login and Signup forms with validation
-- Route protection for authenticated pages
-- Session management using localStorage
-- Automatic redirect based on auth status
+## 🧾 Prerequisites
 
-###  Dashboard
-- Real-time statistics overview
-- Total, Open, In Progress, and Closed tickets
-- Trend indicators with percentages
-- Quick action buttons
+Ensure you have the following installed before running JetGO:
 
-###  Ticket Management (Full CRUD)
-- **Create**: Form with validation for new tickets
-- **Read**: Card-based ticket display with status tags
-- **Update**: Inline editing with form validation
-- **Delete**: Confirmation modal before removal
+| Tool | Version | Link |
+|------|----------|------|
+| **Node.js** | ≥16.0 | [Download](https://nodejs.org/) |
+| **npm / yarn** | ≥8.0 / ≥1.22 | [Install](https://www.npmjs.com/) |
+| **Git** | Latest | [Install](https://git-scm.com/) |
 
-###  Responsive Design
-- Mobile-first approach
-- Tablet and desktop optimizations
-- Consistent layout across all devices
+Verify your setup:
+```bash
+node --version
+npm --version
 
-##  Design System
+#  Installation
+1. Clone the Repository
+git clone <repository-url>
+cd jetgo-vue
 
-### Color Palette
-- **Primary**: Blue-600 (Jira-inspired blue)
-- **Success**: Green-500/600 (Open tickets)
-- **Warning**: Yellow-500/600 (In Progress tickets)
-- **Danger**: Red-500/600 (Delete actions)
-- **Neutral**: Gray scale (Closed tickets, text)
+# Install Dependencies
 
-### Status Colors
-- `open` → Green
-- `in_progress` → Yellow
-- `closed` → Gray
-
-### Layout Rules
-- Max-width: 1440px (centered)
-- Wavy background in hero section
-- Decorative circles for visual interest
-- Card components with shadows and rounded corners
-
-## Getting Started
-
-### Prerequisites
-- Node.js 16.0 or higher
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone [repository-url]
-   cd jetgo-vue
-
-### Installation
-
-# Install dependencies
 npm install
 
-# Start development server
+# Start the Development Server
 npm run dev
 
-# Build for production
+# Open in your browser:
+http://localhost:5173
+
+# Build for Production
 npm run build
 
-Pages & Routes
-Route	Component	Access
-/	LandingPage	Public\
-/login	AuthPage (login mode)	Public\
-/signup	AuthPage (signup mode)	Public\
-/dashboard	DashboardView	Protected\
-/tickets	TicketManagement	Protected\
-/about	AboutPage	Public\
-/features	FeaturesPage	Public\
-/pricing	PricingPage	Public\
-/contact	ContactPage	Public\
-/documentation	DocumentationPage	Public\
-/careers	CareersPage	Public\
-/privacy	PrivacyPage	Public\
-/terms	TermsPage	Public\
+# Preview the Production Build
+npm run preview
 
- Authentication
-Session Management
-Uses localStorage with key: ticketapp_session
+## Usage Guide
+1 # Run the App
+npm run dev
+2 # Open Browser
+Navigate to http://localhost:5173
 
-Automatic token validation
+3 # Sign Up
+Create a new account (stored in localStorage)
 
-Route guards for protected pages
+4 # Log In
+Access your personal dashboard
 
-Development Scripts
-Script	Purpose
-dev	Start development server
-build	Create production build
-preview	Preview production build
-test	Run test suite
-lint	Run ESLint
-type-check	TypeScript type checking
+5 # Create Tickets
+Add, edit, or delete tickets directly from the interface
 
- Known Issues
-Mobile Safari: Minor styling issues in form inputs
+## Authentication
 
-IE11: Not supported (modern browsers only)
+JetGO uses localStorage-based session handling for demo purposes.
 
-Offline Mode: Limited functionality without network
+ticketapp_users      // All registered users
+ticketapp_session    // Current user session
 
-Validation Rules
-Ticket Validation
-Title: Required, min 3 characters
+## Flow
 
-Status: Required, must be: "open", "in_progress", "closed"
+User signs up → new user object stored
 
-Description: Optional, max 500 characters
+Login → validates credentials → session token created
 
-Priority: Optional, custom validation
+Logout → clears session and redirects to login
 
-Authentication Validation
-Email: Valid email format
+# Protected Routes
 
-Password: Min 6 characters
+| Route               | Component        | Access    |
+| ------------------- | ---------------- | --------- |
+| `/dashboard`        | DashboardView    | Protected |
+| `/tickets`          | TicketManagement | Protected |
+| `/login`, `/signup` | AuthPage         | Public    |
 
- Error Handling
-Validation Errors
-Inline error messages below form fields
 
-Real-time validation feedback
+Ticket Management
+Create
 
-System Errors
-Toast notifications for API failures
+Fill form (title, status, description)
 
-User-friendly error messages
+Inline validation
 
-Automatic retry mechanisms
+Toast confirmation
 
-Authentication Errors
-Session expiration handling
+Read
 
-Automatic redirect to login
+Tickets displayed in cards with:
 
-Clear error messages
+Status badge (color-coded)
 
- Responsive Behavior
-Breakpoints
-Mobile: < 768px (stacked layout)
+Priority level
 
-Tablet: 768px - 1024px (adaptive grid)
+Created date
 
-Desktop: > 1024px (full layout)
+Update
 
-Mobile Features
-Collapsible navigation
+Edit inline or via modal form
 
-Touch-friendly buttons
+Changes saved immediately with toast feedback
 
-Optimized form inputs
+Delete
 
-Responsive typography
+Confirmation modal appears before deletion
 
- Accessibility Features
-Semantic HTML structure
+Toast confirmation after removal
 
-Proper ARIA labels
+## Validation Rules
 
-Keyboard navigation support
+| Field       | Required | Rule                                   |
+| ----------- | -------- | -------------------------------------- |
+| Title       | ✅        | Minimum 3 characters                   |
+| Status      | ✅        | One of `open`, `in_progress`, `closed` |
+| Description | ❌        | Max 500 chars                          |
+| Priority    | ❌        | Optional field                         |
 
-Focus indicators
+## Design System
 
-Sufficient color contrast
+# colors
 
-Alt text for images
+| Role        | Tailwind Color | Example        |
+| ----------- | -------------- | -------------- |
+| **Primary** | `blue-600`     | Main accent    |
+| **Success** | `green-600`    | Open tickets   |
+| **Warning** | `yellow-500`   | In-progress    |
+| **Neutral** | `gray-500`     | Closed tickets |
+| **Error**   | `red-600`      | Delete, errors |
 
- Contributing
+## Components
+
+Cards: rounded-xl shadow-md hover:shadow-lg
+Buttons: Gradient backgrounds, focus rings
+Toast: Animated notifications
+Modal: Centered overlays with smooth transitions
+
+# Layout
+Max width: 1440px
+Centered container
+Wave hero background
+Decorative blur circles
+Responsive grid for tickets
+
+## Accessibility
+
+JetGO follows WCAG 2.1 AA best practices.
+
+## Implemented Features
+
+✅ Semantic HTML
+✅ ARIA labels for icons
+✅ Keyboard navigable components
+✅ Visible focus rings
+✅ Proper color contrast (4.5:1+)
+✅ Screen reader-friendly toasts and alerts
+
+Tested With
+
+NVDA (Windows)
+
+VoiceOver (macOS)
+
+Chrome Lighthouse Audit
+
+⚠️ Known Issues
+Issue	Description
+Mobile Safari	Minor input styling inconsistencies
+Offline Mode	No offline persistence
+IE11	Not supported (ES6+ required)
+No real backend	Uses localStorage for demo purposes only
+🌍 Browser Support
+Browser	Supported
+✅ Chrome 90+	Full
+✅ Firefox 88+	Full
+✅ Edge 90+	Full
+✅ Safari 14+	Full
+⚠️ IE / Legacy	Not supported
+🤝 Contributing
+
+# Contributions are welcome!
+
 Fork the repository
-
-Create a feature branch
-
+Create a branch (feature/new-feature)
 Commit your changes
-
 Push to the branch
+Open a Pull Request
 
-Create a Pull Request
+# License
 
- License
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License — see the LICENSE
+ file for details.
 
- Team
+Note: This is a demonstration project for educational and portfolio purposes.
+
+ Team & Acknowledgments
+
 Developer: [Your Name]
+Design Inspiration: Atlassian Jira
+Framework: Vue 3 with TypeScript
+Icons: Lucide Vue
+UI: Tailwind CSS
 
-Design: Inspired by Atlassian Jira
+ Submission Checklist
 
-Framework: Vue.js 3 with TypeScript
-
- License
-MIT License - feel free to use this project for learning and development.
-
-Built with Vue 3 and modern web technologies
-
-Part of a multi-framework implementation including React and Twig versions
-
-This README provides:
-
-1. **Comprehensive documentation** for the Vue.js implementation
-2. **Clear setup instructions** for developers
-3. **Technical architecture** overview
-4. **Feature documentation** with code examples
-5. **Accessibility and testing** information
-6. **Professional structure** suitable for submission
-
-It meets all the documentation requirements specified in the task while being detailed enough for other developers to understand and work with the codebase.
+✅ Landing page with wave and blur design
+✅ Authentication (login/signup)
+✅ Protected dashboard
+✅ Ticket CRUD operations
+✅ Real-time validation and toasts
+✅ Responsive across all screens
+✅ Accessible components
+✅ Clean UI and UX
+✅ Complete documentation
