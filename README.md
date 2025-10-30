@@ -147,18 +147,18 @@ npm run build
 npm run preview
 
 ## Usage Guide
-1 # Run the App
+ # Run the App
 npm run dev
-2 # Open Browser
+ # Open Browser
 Navigate to http://localhost:5173
 
-3 # Sign Up
+ # Sign Up
 Create a new account (stored in localStorage)
 
-4 # Log In
+ # Log In
 Access your personal dashboard
 
-5 # Create Tickets
+ # Create Tickets
 Add, edit, or delete tickets directly from the interface
 
 ## Authentication
@@ -245,11 +245,11 @@ JetGO follows WCAG 2.1 AA best practices.
 
 ## Implemented Features
 
-✅ Semantic HTML
-✅ ARIA labels for icons
-✅ Keyboard navigable components
-✅ Visible focus rings
-✅ Proper color contrast (4.5:1+)
+✅ Semantic HTML\
+✅ ARIA labels for icons\
+✅ Keyboard navigable components\
+✅ Visible focus rings\
+✅ Proper color contrast (4.5:1+)\
 ✅ Screen reader-friendly toasts and alerts
 
 Tested With
@@ -261,26 +261,27 @@ VoiceOver (macOS)
 Chrome Lighthouse Audit
 
 ⚠️ Known Issues
-Issue	Description
-Mobile Safari	Minor input styling inconsistencies
-Offline Mode	No offline persistence
-IE11	Not supported (ES6+ required)
-No real backend	Uses localStorage for demo purposes only
-🌍 Browser Support
-Browser	Supported
-✅ Chrome 90+	Full
-✅ Firefox 88+	Full
-✅ Edge 90+	Full
-✅ Safari 14+	Full
-⚠️ IE / Legacy	Not supported
+Issue	Description\
+Mobile Safari	Minor input styling inconsistencies\
+Offline Mode	No offline persistence\
+IE11	Not supported (ES6+ required)\
+No real backend	Uses localStorage for demo purposes only\
+
+🌍 Browser Support\
+Browser	Supported\
+✅ Chrome 90+	Full\
+✅ Firefox 88+	Full\
+✅ Edge 90+	Full\
+✅ Safari 14+	Full\
+⚠️ IE / Legacy	Not supported\
 🤝 Contributing
 
 # Contributions are welcome!
 
-Fork the repository
-Create a branch (feature/new-feature)
-Commit your changes
-Push to the branch
+Fork the repository\
+Create a branch (feature/new-feature)\
+Commit your changes\
+Push to the branch\
 Open a Pull Request
 
 # License
@@ -293,21 +294,21 @@ Note: This is a demonstration project for educational and portfolio purposes.
  Team & Acknowledgments
 
 Developer: [Your Name]
-Design Inspiration: Atlassian Jira
-Framework: Vue 3 with TypeScript
-Icons: Lucide Vue
+Design Inspiration: Atlassian Jira\
+Framework: Vue 3 with TypeScript\
+Icons: Lucide Vue\
 UI: Tailwind CSS
 
  Submission Checklist
 
-✅ Landing page with wave and blur design
-✅ Authentication (login/signup)
-✅ Protected dashboard
-✅ Ticket CRUD operations
-✅ Real-time validation and toasts
-✅ Responsive across all screens
-✅ Accessible components
-✅ Clean UI and UX
+✅ Landing page with wave and blur design\
+✅ Authentication (login/signup)\
+✅ Protected dashboard\
+✅ Ticket CRUD operations\
+✅ Real-time validation and toasts\
+✅ Responsive across all screens\
+✅ Accessible components\
+✅ Clean UI and UX\
 ✅ Complete documentation
 
 ---
